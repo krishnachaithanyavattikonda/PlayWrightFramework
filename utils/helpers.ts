@@ -36,6 +36,15 @@ export class Helper {
     await page.waitForSelector(selector, { state: 'visible', timeout });
   }
 
+  async isElementVisible(page: Page, selector: string): Promise<boolean> {
+    try {
+        await page.waitForSelector(selector, { state: 'visible', timeout: 1000 });
+        return true; 
+    } catch {
+        return false;
+    }
+}
+
   async waitForInvisibility(page: Page, selector: string, timeout = 5000): Promise<void> {
     await page.waitForSelector(selector, { state: 'hidden', timeout });
   }
