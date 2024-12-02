@@ -1,0 +1,25 @@
+{
+  "name": "playwrightpractice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headless": "npx playwright test --headless",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --headed --debug",
+    "test:trace": "npx playwright test --trace on"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
