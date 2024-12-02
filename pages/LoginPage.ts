@@ -1,4 +1,4 @@
-import {Page} from '@playwright/test';
+import {expect, Page} from '@playwright/test';
 import{Helper} from '../utils/helpers'
 
 export class LoginPage{
@@ -14,6 +14,7 @@ export class LoginPage{
     private passwordField='#password';
     private loginButton='#login-button';
     private errorMessage='h3[data-test="error"]';
+    private LoginScreenCheck='input#login-button';
 
     async Login(username:string,password:string){
         await this.page.goto('/');
@@ -24,5 +25,8 @@ export class LoginPage{
     async CheckErrorMessage():Promise<string>{
         await this.helper.waitForVisibility(this.page,this.errorMessage);
         return await this.helper.getText(this.page,this.errorMessage)??'';
+    }
+    async CheckForLoginScreen():Promise<boolean>{
+        return this.helper.isElementVisible(this.page,this.LoginScreenCheck);
     }
 }
