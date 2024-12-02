@@ -30,6 +30,7 @@ trace.zip
 # Test output
 test-results/
 output/
+allure-results/
 
 # TypeScript specific
 *.tsbuildinfo

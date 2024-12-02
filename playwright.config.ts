@@ -13,4 +13,5 @@ export default defineConfig({
     video: 'retain-on-failure',
     headless: false,
   },
+  workers: 4,  
 });
