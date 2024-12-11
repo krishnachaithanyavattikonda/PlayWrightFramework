@@ -6,12 +6,25 @@ export default defineConfig({
   retries: 1,
   reporter: [['list'], ['html']],
   use: {
-    baseURL: 'https://www.saucedemo.com/v1/index.html',
+    baseURL: 'https://www.saucedemo.com/v1/index.html', // Global base URL for UI tests
     browserName: 'chromium',
     trace: 'on',
     screenshot: 'on',
     video: 'retain-on-failure',
     headless: false,
   },
-  workers: 4,  
+  workers: 4,
+  projects: [
+    {
+      name: 'UI Tests',
+      testDir: './tests/ui', 
+    },
+    {
+      name: 'API Tests',
+      testDir: './tests/api', 
+      use: {
+        baseURL: 'https://jsonplaceholder.typicode.com', 
+      },
+    },
+  ],
 });

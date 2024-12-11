@@ -1,5 +1,5 @@
-import { test, expect } from '../fixtures';
-import {config} from '../config';
+import { test, expect } from '../../fixtures';
+import {config} from '../../config';
 
 test.describe('Product Browsing and Sorting',()=>{
 
