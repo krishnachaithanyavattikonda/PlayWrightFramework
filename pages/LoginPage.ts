@@ -1,5 +1,5 @@
 import {expect, Page} from '@playwright/test';
-import{Helper} from '../utils/helpers'
+import{Helper} from '../utils/SeleniumHelpers'
 
 export class LoginPage{
     private page:any;

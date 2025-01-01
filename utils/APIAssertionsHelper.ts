@@ -1,5 +1,5 @@
 import { APIResponse } from '@playwright/test';
-import { AssertHelper } from './assertHelpers';
+import { AssertHelper } from './AssertHandler';
 
 export class APIAssertionsHelper {
   /**
@@ -113,5 +113,26 @@ export class APIAssertionsHelper {
     const message = 'Response body is not a valid JSON.';
     this.assert(isValid, message, isSoft);
   }
+
+  /**
+   * Asserts that a value is truthy (soft or hard).
+   * @param value - The value to check
+   * @param isSoft - Whether to perform a soft assertion
+   */
+  static assertTruthy(value: any, isSoft: boolean = false): void {
+    const message = `Expected value to be truthy, but got: ${value}.`;
+    this.assert(!!value, message, isSoft);
+  }
+
+  /**
+   * Asserts that a value is falsey (soft or hard).
+   * @param value - The value to check
+   * @param isSoft - Whether to perform a soft assertion
+   */
+  static assertFalse(value: any, isSoft: boolean = false): void {
+    const message = `Expected value to be falsey, but got: ${value}.`;
+    this.assert(!value, message, isSoft);
+  }
+
 }
 export const apiAssertions=new APIAssertionsHelper();

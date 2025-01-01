@@ -1,5 +1,5 @@
 import{ElementHandle, expect, Page} from '@playwright/test';
-import{Helper} from '../utils/helpers'
+import{Helper} from '../utils/SeleniumHelpers'
 import{uiAssertions, UIAssertionsHelper} from '../utils/UIAssertionsHelper'
 
 export class HomePage{
@@ -37,7 +37,7 @@ export class HomePage{
     }
     async verifyAllProductsLinks(){
         const productElements=await this.page.$$(this.productsItem);
-        UIAssertionsHelper.assertToBeGreaterThan(productElements.length,0);
+        await UIAssertionsHelper.assertToBeGreaterThan(productElements.length,0);
 
         for(const product of productElements){
             const productImage=await product.$(this.productsImage);
@@ -46,11 +46,11 @@ export class HomePage{
             const productPrice=await product.$(this.productsPrice);
             const productAddCart=await product.$(this.productsAddToCart);
 
-            UIAssertionsHelper.assertTruthy(await this.helper.isElementVisible(this.page,productImage),true);
-            UIAssertionsHelper.assertTruthy(await this.helper.isElementVisible(this.page,productName), true);
-            UIAssertionsHelper.assertTruthy(await this.helper.isElementVisible(this.page,productDescription)), true;
-            UIAssertionsHelper.assertTruthy(await this.helper.isElementVisible(this.page,productPrice), true);
-            UIAssertionsHelper.assertTruthy(await this.helper.isElementVisible(this.page,productAddCart), true);
+            await UIAssertionsHelper.assertTruthy(await this.helper.isElementVisible(this.page,productImage),true);
+            await UIAssertionsHelper.assertTruthy(await this.helper.isElementVisible(this.page,productName), true);
+            await UIAssertionsHelper.assertTruthy(await this.helper.isElementVisible(this.page,productDescription)), true;
+            await UIAssertionsHelper.assertTruthy(await this.helper.isElementVisible(this.page,productPrice), true);
+            await UIAssertionsHelper.assertTruthy(await this.helper.isElementVisible(this.page,productAddCart), true);
         }
     }
 

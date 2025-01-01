@@ -11,10 +11,10 @@ export class ApiHelper{
     async get(endPoint:string):Promise<APIResponse>{
         return this.requestContext.get(endPoint);
     }
-    async post(endPoint:string,payLoad:string):Promise<APIResponse>{
+    async post(endPoint:string,payLoad:string|object):Promise<APIResponse>{
         return this.requestContext.post(endPoint,{data:payLoad,timeout:10000});
     }
-    async put(endPoint:string,payLoad:string):Promise<APIResponse>{
+    async put(endPoint:string,payLoad:string|object):Promise<APIResponse>{
         return this.requestContext.put(endPoint,{data:payLoad,timeout:10000});
     }
     async delete(endPoint:string):Promise<APIResponse>{

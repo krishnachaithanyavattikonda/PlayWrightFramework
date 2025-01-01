@@ -1,5 +1,5 @@
 import { Locator } from '@playwright/test';
-import { AssertHelper } from './assertHelpers';
+import { AssertHelper } from './AssertHandler';
 
 export class UIAssertionsHelper {
   /**
