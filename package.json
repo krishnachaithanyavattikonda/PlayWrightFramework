@@ -7,7 +7,8 @@
     "test:headless": "npx playwright test --headless",
     "test:headed": "npx playwright test --headed",
     "test:debug": "npx playwright test --headed --debug",
-    "test:trace": "npx playwright test --trace on"
+    "test:trace": "npx playwright test --trace on",
+    "test:project": "npx playwright test --project"
   },
   "keywords": [],
   "author": "",
