@@ -18,6 +18,9 @@ export default defineConfig({
     {
       name: 'UI Tests',
       testDir: './tests/ui', 
+      use: {
+        viewport: { width: 1280, height: 720 }, 
+      },
     },
     {
       name: 'API Tests',
@@ -27,4 +30,5 @@ export default defineConfig({
       },
     },
   ],
+  fullyParallel: true
 });

@@ -1,5 +1,6 @@
 import{ElementHandle, expect, Page} from '@playwright/test';
 import{Helper} from '../utils/helpers'
+import{uiAssertions, UIAssertionsHelper} from '../utils/UIAssertionsHelper'
 
 export class HomePage{
     private page:Page;
@@ -36,7 +37,7 @@ export class HomePage{
     }
     async verifyAllProductsLinks(){
         const productElements=await this.page.$$(this.productsItem);
-        expect(productElements.length).toBeGreaterThan(0);
+        UIAssertionsHelper.assertToBeGreaterThan(productElements.length,0);
 
         for(const product of productElements){
             const productImage=await product.$(this.productsImage);
@@ -45,11 +46,11 @@ export class HomePage{
             const productPrice=await product.$(this.productsPrice);
             const productAddCart=await product.$(this.productsAddToCart);
 
-            expect(await this.helper.isElementVisible(this.page,productImage)).toBeTruthy();
-            expect(await this.helper.isElementVisible(this.page,productName)).toBeTruthy();
-            expect(await this.helper.isElementVisible(this.page,productDescription)).toBeTruthy();
-            expect(await this.helper.isElementVisible(this.page,productPrice)).toBeTruthy();
-            expect(await this.helper.isElementVisible(this.page,productAddCart)).toBeTruthy();
+            UIAssertionsHelper.assertTruthy(await this.helper.isElementVisible(this.page,productImage),true);
+            UIAssertionsHelper.assertTruthy(await this.helper.isElementVisible(this.page,productName), true);
+            UIAssertionsHelper.assertTruthy(await this.helper.isElementVisible(this.page,productDescription)), true;
+            UIAssertionsHelper.assertTruthy(await this.helper.isElementVisible(this.page,productPrice), true);
+            UIAssertionsHelper.assertTruthy(await this.helper.isElementVisible(this.page,productAddCart), true);
         }
     }
 
