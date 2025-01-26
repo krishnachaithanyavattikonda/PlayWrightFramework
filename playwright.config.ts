@@ -11,7 +11,7 @@ export default defineConfig({
     trace: 'on',
     screenshot: 'on',
     video: 'retain-on-failure',
-    headless: false,
+    headless: true,
   },
   workers: 4,
   projects: [

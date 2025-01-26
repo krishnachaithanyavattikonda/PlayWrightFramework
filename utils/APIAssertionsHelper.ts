@@ -1,5 +1,6 @@
 import { APIResponse } from '@playwright/test';
 import { AssertHelper } from './AssertHandler';
+import{Ajv} from 'ajv';
 
 export class APIAssertionsHelper {
   /**
@@ -92,8 +93,15 @@ export class APIAssertionsHelper {
    * @returns - Whether the schema matches or not
    */
   private static validateJsonSchema(responseBody: object, schema: object): boolean {
-    // Implement your schema validation logic here (e.g., using ajv or another library)
-    return true; // Placeholder
+    const ajv = new Ajv(); // Initialize Ajv instance
+    const validate = ajv.compile(schema); // Compile the schema
+    const valid = validate(responseBody); // Validate the response body
+
+    if (!valid) {
+      console.error('JSON Schema validation errors:', validate.errors);
+    }
+
+    return valid; 
   }
 
   /**
