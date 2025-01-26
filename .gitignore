@@ -14,6 +14,7 @@ playwright/.playwright-cache/
 trace.zip
 *.har
 
+
 # IDE-specific
 .vscode/
 .idea/
