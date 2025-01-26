@@ -14,10 +14,6 @@ playwright/.playwright-cache/
 trace.zip
 *.har
 
-# Environment variables
-.env
-.env.local
-.env.*.local
 
 # IDE-specific
 .vscode/
